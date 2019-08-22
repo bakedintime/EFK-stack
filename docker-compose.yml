@@ -14,7 +14,7 @@ services:
       - ./fluentd/conf:/fluentd/etc
       - ./logs:/logs
     ports:
-      - 8080:8080
+      - 9000:9000
 
   kibana:
     image: docker.elastic.co/kibana/kibana:6.2.4
