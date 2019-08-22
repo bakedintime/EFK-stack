@@ -1,4 +1,10 @@
 FROM fluent/fluentd:stable
+RUN addgroup -S fluent
+RUN adduser -S -D -h /home/fluent fluent fluent
+RUN chown -R fluent:fluent /home/fluent
+RUN mkdir /home/fluent/logs
+RUN chown -R fluent:fluent /home/fluent/logs/
+WORKDIR /home/fluent
 RUN apk add --update --virtual .build-deps \
     sudo build-base ruby-dev \
     && sudo gem install \
